@@ -1,0 +1,58 @@
+LAMMPS (29 Aug 2024 - Development - 5b9cae1)
+  using 2 OpenMP thread(s) per MPI task
+units           metal
+dimension       3
+boundary        p p p
+atom_style      atomic
+
+variable        name string  lmps
+
+read_data       ${name}.data
+read_data       lmps.data
+Reading data file ...
+  triclinic box = (0 0 2.56036) to (5.15681 4.4659285 201.75719) with tilt (-2.578405 0 0)
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  312 atoms
+  read_data CPU = 0.009 seconds
+
+change_box      all triclinic
+Changing box ...
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  triclinic box = (0 0 2.56036) to (5.15681 4.4659285 201.75719) with tilt (-2.578405 0 0)
+
+change_box      all x final 0.0004910445575712268 4.854622108742432    y final 0.0004252570583733491 4.2042260719416245 xy final -2.427065532145735 xz final 0 yz final 0  remap
+Changing box ...
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  triclinic box = (0.00049104456 0 2.56036) to (4.8546221 4.4659285 201.75719) with tilt (-2.578405 0 0)
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  triclinic box = (0.00049104456 0.00042525706 2.56036) to (4.8546221 4.2042261 201.75719) with tilt (-2.578405 0 0)
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  triclinic box = (0.00049104456 0.00042525706 2.56036) to (4.8546221 4.2042261 201.75719) with tilt (-2.4270655 0 0)
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  triclinic box = (0.00049104456 0.00042525706 2.56036) to (4.8546221 4.2042261 201.75719) with tilt (-2.4270655 0 0)
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  triclinic box = (0.00049104456 0.00042525706 2.56036) to (4.8546221 4.2042261 201.75719) with tilt (-2.4270655 0 0)
+
+
+mass            1  180.94788   # Ta
+mass            2  55.845    # Fe
+
+pair_style     grace pad_verbose
+[GRACE] TF version: 2.16.2
+[GRACE] Neighbour padding is ON, padding fraction: 0.01, max padding fraction before reduction: 0.2, max number of reduction(s): 10
+pair_coeff     * * /home/wz300646/GRACE/STATIC_FILES/POTENTIALS/GRACE-2L-OMAT   Ta Fe
+[GRACE] Loading /home/wz300646/GRACE/STATIC_FILES/POTENTIALS/GRACE-2L-OMAT
+[GRACE] Model loaded
+[GRACE] Mapping LAMMPS atom type #1(Ta) -> ACE species type #73
+[GRACE] Mapping LAMMPS atom type #2(Fe) -> ACE species type #24
+
+neighbor        1.4 bin
+neigh_modify    every 1 delay 10 check yes
+
+compute         peatom all pe/atom
+compute         keatom all ke/atom
+
+log             fire_cg_${name}.log
+log             fire_cg_lmps.log

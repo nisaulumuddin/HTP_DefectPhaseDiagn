@@ -1,0 +1,51 @@
+LAMMPS (29 Aug 2024 - Development - 5b9cae1)
+  using 2 OpenMP thread(s) per MPI task
+units           metal
+dimension       3
+boundary        p p p
+atom_style      atomic
+
+variable        name string raw_Ta7Fe6_unitcell
+
+read_data       ${name}.data
+read_data       raw_Ta7Fe6_unitcell.data
+Reading data file ...
+  triclinic box = (0 0 0) to (4.9389278 4.2772369 27.097144) with tilt (-2.4694639 0 0)
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  39 atoms
+  read_data CPU = 0.022 seconds
+
+change_box      all triclinic
+Changing box ...
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  triclinic box = (0 0 0) to (4.9389278 4.2772369 27.097144) with tilt (-2.4694639 0 0)
+replicate       5 5 5
+Replication is creating a 5x5x5 = 125 times larger system...
+  triclinic box = (0 0 0) to (24.694639 21.386185 135.48572) with tilt (-12.347319 0 0)
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  1 by 1 by 1 MPI processor grid
+  4875 atoms
+  replicate CPU = 0.000 seconds
+
+mass            1  180.94788   # Ta
+mass            2  55.845    # Fe
+
+pair_style     grace pad_verbose
+[GRACE] TF version: 2.16.2
+[GRACE] Neighbour padding is ON, padding fraction: 0.01, max padding fraction before reduction: 0.2, max number of reduction(s): 10
+pair_coeff     * * /home/wz300646/GRACE/STATIC_FILES/POTENTIALS/GRACE-2L-OMAT  Ta Fe
+[GRACE] Loading /home/wz300646/GRACE/STATIC_FILES/POTENTIALS/GRACE-2L-OMAT
+[GRACE] Model loaded
+[GRACE] Mapping LAMMPS atom type #1(Ta) -> ACE species type #73
+[GRACE] Mapping LAMMPS atom type #2(Fe) -> ACE species type #24
+
+neighbor        1.4 bin
+neigh_modify    every 1 delay 10 check yes
+
+compute         peatom all pe/atom
+compute         keatom all ke/atom
+
+log             fire_cg_${name}.log
+log             fire_cg_raw_Ta7Fe6_unitcell.log

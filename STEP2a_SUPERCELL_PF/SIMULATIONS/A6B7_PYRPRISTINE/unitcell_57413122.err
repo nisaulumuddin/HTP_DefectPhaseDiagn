@@ -1,0 +1,124 @@
+/var/spool/slurm/job57413122/slurm_script:18: command not found: python
+dirname: missing operand
+Try 'dirname --help' for more information.
+dirname: missing operand
+Try 'dirname --help' for more information.
+[INFO] Module GCC/12.3.0 loaded.
+[INFO] Module intel-compilers/2022.1.0 loaded.
+
+The following have been reloaded with a version change:
+  1) GCCcore/.12.3.0 => GCCcore/.11.3.0     3) zlib/1.2.13 => zlib/1.2.12
+  2) binutils/2.40 => binutils/2.38
+
+[INFO] Module OpenSSL/1.1 loaded.
+[INFO] Module zlib/1.2.12 loaded.
+[INFO] Module binutils/2.38 loaded.
+[INFO] Module GCCcore/.12.3.0 loaded.
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) binutils/2.38     2) zlib/1.2.12
+
+The following have been reloaded with a version change:
+  1) GCCcore/.11.3.0 => GCCcore/.12.3.0
+
+[INFO] Module zlib/1.2.13 loaded.
+
+The following have been reloaded with a version change:
+  1) zlib/1.2.12 => zlib/1.2.13
+
+[INFO] Module binutils/2.40 loaded.
+
+The following have been reloaded with a version change:
+  1) binutils/2.38 => binutils/2.40
+
+[INFO] Module numactl/2.0.16 loaded.
+[INFO] Module NVHPC/24.3-CUDA-12.3.0 loaded.
+[INFO] Module libxml2/2.11.4 loaded.
+[INFO] Module libpciaccess/0.17 loaded.
+[INFO] Module hwloc/2.9.1 loaded.
+[INFO] Module PMIx/4.2.4 loaded.
+[INFO] Module UCC/1.2.0 loaded.
+[INFO] Module GCC/12.3.0 loaded.
+[INFO] Module OpenMPI/4.1.5 loaded.
+[INFO] Module nvompi/2023.07 loaded.
+[INFO] Module OpenMPI/4.1.5 loaded.
+
+Due to MODULEPATH changes, the following have been reloaded:
+  1) OpenMPI/4.1.5
+
+The following have been reloaded with a version change:
+  1) CUDA/12.3.0 => CUDA/12.1.1
+  2) NVHPC/24.3-CUDA-12.3.0 => NVHPC/23.7-CUDA-12.1.1
+
+[INFO] Module libevent/2.1.12 loaded.
+[INFO] Module XZ/5.4.2 loaded.
+[INFO] Module libarchive/3.6.2 loaded.
+[INFO] Module GMP/6.2.1 loaded.
+[INFO] Module libffi/3.4.2 loaded.
+[INFO] Module ncurses/6.4 loaded.
+[INFO] Module FFTW/3.3.10 loaded.
+[INFO] Module imkl/2021.4.0 loaded.
+[INFO] Module Eigen/3.4.0 loaded.
+[INFO] Module CUDA/12.3.0 loaded.
+
+The following have been reloaded with a version change:
+  1) CUDA/12.1.1 => CUDA/12.3.0
+
+[INFO] Module cuDNN/8.9.7.29-CUDA-12.3.0 loaded.
+[INFO] Module UCX/1.15.0 loaded.
+
+The following have been reloaded with a version change:
+  1) UCX/1.14.1 => UCX/1.15.0
+
+[INFO] Module GDRCopy/2.4 loaded.
+
+The following have been reloaded with a version change:
+  1) GDRCopy/2.3.1 => GDRCopy/2.4
+
+[INFO] Module NCCL/2.20.5-CUDA-12.3.0 loaded.
+
+The following have been reloaded with a version change:
+  1) NCCL/2.18.3-CUDA-12.1.1 => NCCL/2.20.5-CUDA-12.3.0
+  2) UCX-CUDA/1.14.1-CUDA-12.1.1 => UCX-CUDA/1.15.0-CUDA-12.3.0
+
+[INFO] Module Z3/4.12.2 loaded.
+[INFO] Module NASM/2.16.01 loaded.
+[INFO] Module bzip2/1.0.8 loaded.
+[INFO] Module x264/20230226 loaded.
+[INFO] Module LAME/3.100 loaded.
+[INFO] Module x265/3.5 loaded.
+[INFO] Module expat/2.5.0 loaded.
+[INFO] Module libpng/1.6.39 loaded.
+[INFO] Module Brotli/1.0.9 loaded.
+[INFO] Module freetype/2.13.0 loaded.
+[INFO] Module util-linux/2.39 loaded.
+[INFO] Module fontconfig/2.14.2 loaded.
+[INFO] Module xorg-macros/1.20.0 loaded.
+[INFO] Module X11/20230603 loaded.
+[INFO] Module FriBidi/1.0.12 loaded.
+[INFO] Module SDL2/2.28.2 loaded.
+[INFO] Module FFmpeg/6.0 loaded.
+[INFO] Module UCX-CUDA/1.15.0-CUDA-12.3.0 loaded.
+[INFO] Module Clang/18.1.2-CUDA-12.3.0 loaded.
+2025-05-12 16:04:28.062457: E external/local_xla/xla/stream_executor/cuda/cuda_fft.cc:479] Unable to register cuFFT factory: Attempting to register factory for plugin cuFFT when one has already been registered
+2025-05-12 16:04:28.319371: E external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:10575] Unable to register cuDNN factory: Attempting to register factory for plugin cuDNN when one has already been registered
+2025-05-12 16:04:28.319449: E external/local_xla/xla/stream_executor/cuda/cuda_blas.cc:1442] Unable to register cuBLAS factory: Attempting to register factory for plugin cuBLAS when one has already been registered
+[n23g0027.hpc.itc.rwth-aachen.de:79746] mca_base_component_repository_open: unable to open mca_mtl_ofi: libefa.so.1: cannot open shared object file: No such file or directory (ignored)
+2025-05-12 16:04:30.803303: I tensorflow/cc/saved_model/reader.cc:83] Reading SavedModel from: /home/wz300646/GRACE/STATIC_FILES/POTENTIALS/GRACE-2L-OMAT
+2025-05-12 16:04:30.813031: I tensorflow/cc/saved_model/reader.cc:51] Reading meta graph with tags { serve }
+2025-05-12 16:04:30.813043: I tensorflow/cc/saved_model/reader.cc:146] Reading SavedModel debug info (if present) from: /home/wz300646/GRACE/STATIC_FILES/POTENTIALS/GRACE-2L-OMAT
+2025-05-12 16:04:30.813092: I tensorflow/core/platform/cpu_feature_guard.cc:210] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX512_FP16 AVX_VNNI AMX_TILE AMX_INT8 AMX_BF16 FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+2025-05-12 16:04:42.275735: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1928] Created device /job:localhost/replica:0/task:0/device:GPU:0 with 93019 MB memory:  -> device: 0, name: NVIDIA H100, pci bus id: 0000:9d:00.0, compute capability: 9.0
+2025-05-12 16:04:42.503796: I tensorflow/compiler/mlir/mlir_graph_optimization_pass.cc:388] MLIR V1 optimization pass is not enabled
+2025-05-12 16:04:42.511471: I tensorflow/cc/saved_model/loader.cc:234] Restoring SavedModel bundle.
+2025-05-12 16:04:43.467287: I tensorflow/cc/saved_model/loader.cc:218] Running initialization op on SavedModel bundle at path: /home/wz300646/GRACE/STATIC_FILES/POTENTIALS/GRACE-2L-OMAT
+2025-05-12 16:04:43.655492: I tensorflow/cc/saved_model/loader.cc:317] SavedModel load for tags { serve }; Status: success: OK. Took 12852191 microseconds.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1747058685.362468   79870 service.cc:145] XLA service 0x14a0a4019800 initialized for platform CUDA (this does not guarantee that XLA will be used). Devices:
+I0000 00:00:1747058685.362498   79870 service.cc:153]   StreamExecutor device (0): NVIDIA H100, Compute Capability 9.0
+2025-05-12 16:04:45.427499: I tensorflow/compiler/mlir/tensorflow/utils/dump_mlir_util.cc:268] disabling MLIR crash reproducer, set env var `MLIR_CRASH_REPRODUCER_DIRECTORY` to enable.
+2025-05-12 16:04:45.896290: I external/local_xla/xla/stream_executor/cuda/cuda_dnn.cc:465] Loaded cuDNN version 8907
+I0000 00:00:1747058692.806058   79870 asm_compiler.cc:369] ptxas warning : Registers are spilled to local memory in function '__cuda_sm20_div_rn_f64_full', 4 bytes spill stores, 4 bytes spill loads
+
+I0000 00:00:1747058692.815492   79870 device_compiler.h:188] Compiled cluster using XLA!  This line is logged at most once for the lifetime of the process.

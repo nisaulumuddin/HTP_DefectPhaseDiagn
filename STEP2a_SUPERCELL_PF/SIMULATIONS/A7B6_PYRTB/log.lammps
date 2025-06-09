@@ -1,0 +1,44 @@
+LAMMPS (29 Aug 2024 - Development - 5b9cae1)
+  using 2 OpenMP thread(s) per MPI task
+units           metal
+dimension       3
+boundary        p p p
+atom_style      atomic
+
+variable        name string raw_pyrTB_fire_cg_Ta7Fe6_x-12-10_y10-11_z10-12
+
+read_data       ${name}.data
+read_data       raw_pyrTB_fire_cg_Ta7Fe6_x-12-10_y10-11_z10-12.data
+Reading data file ...
+  orthogonal box = (-3.7437161e-08 -7.1927103e-08 2.0492412) to (4.9770057 27.83345 3420.0132)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  32526 atoms
+  reading velocities ...
+  32526 velocities
+  read_data CPU = 0.213 seconds
+
+change_box      all triclinic
+Changing box ...
+  triclinic box = (-3.7437161e-08 -7.1927103e-08 2.0492412) to (4.9770057 27.83345 3420.0132) with tilt (0 0 0)
+
+mass            2  180.94788   # Ta
+mass            1  55.845    # Fe
+
+pair_style     grace pad_verbose
+[GRACE] TF version: 2.16.2
+[GRACE] Neighbour padding is ON, padding fraction: 0.01, max padding fraction before reduction: 0.2, max number of reduction(s): 10
+pair_coeff     * * /home/wz300646/GRACE/STATIC_FILES/POTENTIALS/GRACE-2L-OMAT   Fe Ta
+[GRACE] Loading /home/wz300646/GRACE/STATIC_FILES/POTENTIALS/GRACE-2L-OMAT
+[GRACE] Model loaded
+[GRACE] Mapping LAMMPS atom type #1(Fe) -> ACE species type #24
+[GRACE] Mapping LAMMPS atom type #2(Ta) -> ACE species type #73
+
+neighbor        1.4 bin
+neigh_modify    every 1 delay 10 check yes
+
+compute         peatom all pe/atom
+compute         keatom all ke/atom
+
+log             fire_cg_${name}.log
+log             fire_cg_raw_pyrTB_fire_cg_Ta7Fe6_x-12-10_y10-11_z10-12.log

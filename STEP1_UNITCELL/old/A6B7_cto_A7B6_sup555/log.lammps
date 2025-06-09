@@ -1,0 +1,61 @@
+LAMMPS (29 Aug 2024 - Development - 5b9cae1)
+OMP_NUM_THREADS environment is not set. Defaulting to 1 thread. (src/comm.cpp:98)
+  using 1 OpenMP thread(s) per MPI task
+units           metal
+dimension       3
+boundary        p p p
+atom_style      atomic
+
+variable        name string fire_cg_raw_Ta6Fe7_unitcell_5x5x5
+
+read_data       ${name}.data
+read_data       fire_cg_raw_Ta6Fe7_unitcell_5x5x5.data
+Reading data file ...
+  triclinic box = (-4.8526579 -8.4071764 -53.12748) to (19.417997 12.611828 79.958639) with tilt (-12.135328 0 0)
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  1 by 1 by 1 MPI processor grid
+  reading atoms ...
+  4875 atoms
+  reading velocities ...
+  4875 velocities
+  read_data CPU = 0.022 seconds
+
+change_box      all triclinic
+Changing box ...
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  triclinic box = (-4.8526579 -8.4071764 -53.12748) to (19.417997 12.611828 79.958639) with tilt (-12.135328 0 0)
+change_box      all x final  -0.095194627145479 24.7898334611454  y final -0.08244096542536 21.4686255329254 z final 1.58069300911371 133.905029159386  xy final -12.4425140441613 xz final 0 yz final 0 remap
+Changing box ...
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  triclinic box = (-0.095194627 -8.4071764 -53.12748) to (24.789833 12.611828 79.958639) with tilt (-12.135328 0 0)
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  triclinic box = (-0.095194627 -0.082440965 -53.12748) to (24.789833 21.468626 79.958639) with tilt (-12.135328 0 0)
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  triclinic box = (-0.095194627 -0.082440965 1.580693) to (24.789833 21.468626 133.90503) with tilt (-12.135328 0 0)
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  triclinic box = (-0.095194627 -0.082440965 1.580693) to (24.789833 21.468626 133.90503) with tilt (-12.442514 0 0)
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  triclinic box = (-0.095194627 -0.082440965 1.580693) to (24.789833 21.468626 133.90503) with tilt (-12.442514 0 0)
+WARNING: Triclinic box skew is large. LAMMPS will run inefficiently. (src/domain.cpp:221)
+  triclinic box = (-0.095194627 -0.082440965 1.580693) to (24.789833 21.468626 133.90503) with tilt (-12.442514 0 0)
+
+mass            1  180.94788   # Ta
+mass            2  55.845    # Fe
+
+pair_style     grace pad_verbose
+[GRACE] TF version: 2.16.2
+[GRACE] Neighbour padding is ON, padding fraction: 0.01, max padding fraction before reduction: 0.2, max number of reduction(s): 10
+pair_coeff     * * /home/wz300646/GRACE/STATIC_FILES/POTENTIALS/GRACE-2L-OMAT Ta Fe
+[GRACE] Loading /home/wz300646/GRACE/STATIC_FILES/POTENTIALS/GRACE-2L-OMAT
+[GRACE] Model loaded
+[GRACE] Mapping LAMMPS atom type #1(Ta) -> ACE species type #73
+[GRACE] Mapping LAMMPS atom type #2(Fe) -> ACE species type #24
+
+neighbor        1.4 bin
+neigh_modify    every 1 delay 10 check yes
+
+compute         peatom all pe/atom
+compute         keatom all ke/atom
+
+log             fire_cg_${name}.log
+log             fire_cg_fire_cg_raw_Ta6Fe7_unitcell_5x5x5.log
